@@ -29,10 +29,10 @@ def revshell(message, params):
     # check, it makes the application vultnerable to inserting arbitrary file
     # names like ../../../etc/passwd as a language
 
-    shells = os.listdir('./shells')
+    shells = os.listdir('./plugins/shells')
     if lang in shells:
         try:
-            with open('./shells/'+lang) as f:
+            with open('./plugins/shells/'+lang) as f:
                 message.send('Here is a reverse shell in `%s`' % lang)
 
                 # Render template with parameters and reply with the output

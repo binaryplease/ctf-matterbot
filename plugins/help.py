@@ -4,7 +4,7 @@ from mmpy_bot.bot import respond_to
 import re
 
 @listen_to('!gimme help', re.IGNORECASE)
-def help(message):
+def display_help(message):
 
     """
     The help function just sends a message with information about available
@@ -20,4 +20,6 @@ def help(message):
     r = "I know the following commands:\n"
     for item in commands:
         r += "\n- " + item
+
+    r += "\n\nYou can also directly ask me questions with `@mattapottata` and I will try my best to answer them!"
     message.send(r)
