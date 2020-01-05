@@ -1,0 +1,8 @@
+SSL_VERIFY = True  # Whether to perform SSL cert verification
+BOT_URL = ''  # with 'http://' and with '/api/v4' path. without trailing slash.
+BOT_LOGIN = ''
+BOT_PASSWORD = ''
+BOT_TOKEN = None # or '<bot-personal-access-token>' if you have set bot personal access token.
+BOT_TEAM = ''  # possible in lowercase
+# WEBHOOK_ID = '<bot-webhook-id>' # otherwise the bot will attempt to create one
+
