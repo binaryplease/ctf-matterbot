@@ -13,6 +13,7 @@ def help(message):
     commands  =[
             "`!gimme shell <language>` Give me a reverse-shell in <language>",
             "`!gimme <cve-id>` Give me info about CVE-<id>",
+            "`!gimme tldr <tool>` Remind me how to use <tool>",
             "`!gimme tool <toolname>` Give me misuse of <toolname>"]
 
     r = "I know the following commands:\n"
@@ -66,5 +67,14 @@ def tool(message,id):
         output = pypandoc.convert_text(soup.body, 'gfm', format='html')
         message.send(output)
 
+@listen_to('!gimme tldr (.*)', re.IGNORECASE)
+def tldr(message,id):
+
+    link = 'https://gtfobins.github.io/gtfobins/'+id
+    link = 'https://raw.githubusercontent.com/tldr-pages/tldr/master/pages/common/'+id+'.md'
+    html = requests.get(link).text
+    message.send(html)
+
 if __name__ == "__main__":
     Bot().run()
+
