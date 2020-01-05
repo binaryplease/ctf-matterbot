@@ -4,6 +4,8 @@ from mmpy_bot.bot import respond_to
 import os
 import pprint
 import re
+import requests
+from bs4 import BeautifulSoup
 
 @listen_to('!bot help', re.IGNORECASE)
 def help(message):
@@ -24,6 +26,15 @@ def revshell(message, lang):
         message.send("Supported languages are:")
         message.send(', '.join(shells))
 
+@listen_to('!cve([0-9-]*)', re.IGNORECASE)
+def cve(message,id):
+
+    link = 'http://cve.circl.lu/cve/CVE'+id
+    html = requests.get(link).text
+    soup = BeautifulSoup(html, "lxml")
+
+    for item in soup.select("#cveInfo > tbody > tr:nth-child(2) > td.info"):
+        message.send('```pre\n'+item.get_text()+'\n```')
 
 if __name__ == "__main__":
     Bot().run()
