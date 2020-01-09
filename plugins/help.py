@@ -15,7 +15,8 @@ def display_help(message):
             "`!gimme shell <language> [local IP] [port]` Give me a reverse-shell in <language>. Optionally specify [your IP] and [port]",
             "`!gimme <cve-id>` Give me info about CVE-<id>",
             "`!gimme tldr <tool>` Remind me how to use <tool>",
-            "`!gimme tool <toolname>` Give me misuse of <toolname>"]
+            "`!gimme tool <tool>` Give me misuse of <tool>",
+            "`!gimme port <number>` Give me the service for <port>"]
 
     r = "I know the following commands:\n"
     for item in commands:
