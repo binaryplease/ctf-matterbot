@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 tags
 mmpy_bot_settings.py
+
+# VisualStudio Code project folder
+.vscode
