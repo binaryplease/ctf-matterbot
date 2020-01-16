@@ -17,6 +17,7 @@ def display_help(message):
         "`!gimme tldr <tool>` Remind me how to use <tool>",
         "`!gimme tool <tool>` Give me misuse of <tool>",
         "`!gimme port <number>` Give me the service for <port>",
+        "`!gimme geoip <ip or domain>` Give me geoip info on <ip or domain>",
     ]
 
     r = "I know the following commands:\n"
