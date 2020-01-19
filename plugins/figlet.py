@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import requests
 
 
-@listen_to("!gimme figlet ([a-z]*) (.*)", re.IGNORECASE)
+@listen_to("!gimme figlet ([a-zA-Z0-9]*) (.*)", re.IGNORECASE)
 def figlet(message, fontname, id):
 
     """
