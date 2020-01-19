@@ -19,6 +19,7 @@ def display_help(message):
         "`!gimme port <number>` Give me the service for <port>",
         "`!gimme geoip <ip or domain>` Give me geoip info on <ip or domain>",
         "`!gimme vape <text>` Give me <text> in vaporwave",
+        "`!gimme figlet <font> <text>` Give me <text> in figlet font <font>",
     ]
 
     r = "I know the following commands:\n"
